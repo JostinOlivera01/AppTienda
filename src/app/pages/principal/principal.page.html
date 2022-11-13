@@ -1,0 +1,163 @@
+
+<ion-menu contentId="main-content">
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Account</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+
+
+    <ion-list>
+      <ion-item>
+        <ion-label>Cart</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Shopping</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Payment</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Shipped</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Leave</ion-label>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+
+
+</ion-menu>
+
+
+
+<ion-header>
+  <ion-toolbar class="color">
+    
+
+<div  *ngIf="permiso == 3" id="main-content">
+    <ion-buttons>
+      <ion-title text-capitalize class="nav">EL MAKINA TE DA</ion-title>
+      <ion-button>
+        <ion-menu-toggle>
+          <ion-button><ion-icon  name="person-circle"></ion-icon></ion-button>
+        </ion-menu-toggle>
+      </ion-button>
+    </ion-buttons>
+</div>
+
+
+ <ion-searchbar color="success" placeholder="Success" *ngIf="permiso == 0"></ion-searchbar>
+
+ <div  *ngIf="permiso == 1">
+  <ion-title text-capitalize>Analisis de Precio</ion-title>
+  <ion-title text-capitalize>Diferencia:${{campo3}}</ion-title>
+</div>
+
+  </ion-toolbar>
+
+</ion-header>
+
+
+
+
+<ion-content>
+
+ 
+
+<!--<div>
+  <ion-item fill="solid">
+    <ion-input  [(ngModel)]="campo1"></ion-input>
+  </ion-item>
+
+  <ion-item fill="solid">
+    <ion-input  [(ngModel)]="campo2"></ion-input>
+  </ion-item>
+
+  <ion-item fill="solid">
+    <ion-input  [(ngModel)]="campo3"></ion-input>
+  </ion-item>
+</div>
+  <h1 class="ion-text-center">LAS MEJORES OFERTAS DE TODO EL MERCADOS</h1>
+
+<ion-list *ngFor="let r of id">
+  <ion-item>
+    <ion-label>{{r[0].productoId}}</ion-label>
+    <ion-label>{{r[0].Nombre}}</ion-label>
+    <ion-label>{{r[0].Precio}}</ion-label>
+    <ion-label>{{r[0].Codigo}}</ion-label>
+  </ion-item>
+</ion-list> -->
+
+<h1 class="ion-text-center">LAS MEJORES OFERTAS DE TODO EL MERCADOS</h1>
+
+<ion-div class="ion-margin" *ngFor="let r of id" >
+<ion-card>
+  <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+  <ion-card-header>
+    <ion-card-title>{{r[0].Nombre}}</ion-card-title>
+    <ion-card-subtitle>{{r[0].Codigo }}</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+    ${{r[0].Precio }}
+  </ion-card-content>
+  <ion-button (click)="comparar(r[0].productoId,r[0].Precio)">Comparar
+  </ion-button>
+</ion-card>
+</ion-div> 
+
+
+<ion-div class="ion-margin">
+  <ion-button size="large" expand="full">Escanear QR</ion-button>
+  <ion-button size="large" expand="full" (click)="cerrarSesion()">Cerrar Sesion</ion-button>
+  <ion-button (click)="cambiarContra()" size="large" expand="full">Cambiar Contraseña</ion-button>
+</ion-div>
+
+
+<ion-card *ngFor="let x of lista_personas">
+
+  <ion-card-header>
+    <ion-card-subtitle>Analista Programador Computacional</ion-card-subtitle>
+    <ion-card-title></ion-card-title>
+  </ion-card-header>
+
+</ion-card>
+
+
+<ion-fab right>
+  <button></button>
+</ion-fab>
+
+<ion-fab right>
+  <ion-fab-button>
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+
+
+<ion-fab slot="fixed" vertical="bottom" horizontal="Star">
+
+  <ion-fab-button>
+    <ion-icon name="reorder-three"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="end">
+    <ion-fab-button (click)="opciones(0)">
+      <ion-icon name="search"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button (click)="opciones(1)">
+      <ion-icon name="bar-chart"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button (click)="opciones(3)">
+      <ion-icon name="person"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+</ion-fab>
+
+
+</ion-content>

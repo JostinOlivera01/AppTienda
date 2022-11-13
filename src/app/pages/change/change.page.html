@@ -1,0 +1,26 @@
+<app-header titulo="Alumno duoc"></app-header>
+
+
+<ion-content class="ion-ion-padding">
+
+
+  <h1 class="ion-text-center ion-padding">Cambiar Contraseña</h1>
+
+  <ion-item>
+    <ion-label position="floating">Correo</ion-label>
+    <ion-input [(ngModel)]="nvCorreo" value="{{nvCorreo}}"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Nueva Contraseña</ion-label>
+    <ion-input [(ngModel)]="nvContrasena"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Actual Contraseña</ion-label>
+    <ion-input [(ngModel)]="nvConfirma"></ion-input>
+  </ion-item>
+
+
+  <ion-button class="color ion-margin"  (click)="validarCambio()">Confirmar Cambio</ion-button>
+
+
+</ion-content>
